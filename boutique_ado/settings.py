@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '8000-andrewodwye-boutiqueado-0sznbzr6ffb.ws-eu116.gitpod.io',  # Add this line
+    '8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net',  # Add this line
 ]
 
 
