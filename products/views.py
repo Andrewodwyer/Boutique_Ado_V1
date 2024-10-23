@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.db.models import Q # Q give the option of or, product name or the product description, without it both would have to match, or logic
+from django.db.models import Q
 from .models import Product, Category
 
 # Create your views here.
@@ -21,7 +21,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -40,7 +41,6 @@ def all_products(request):
                 return redirect(reverse('products'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            # pipe | is the or query and the i before the contains makes the querys not case sensitive 
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
