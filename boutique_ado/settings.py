@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net', 
+    '8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net',
 ]
 
 
@@ -82,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [
