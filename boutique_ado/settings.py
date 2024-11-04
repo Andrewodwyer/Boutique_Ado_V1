@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -175,6 +176,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51QHOTHG2XPZVpqqYmtvF75Zj5hJQRY6E9qR576ryMwQPJNiUbFlq81s39OWhWQwFeSAKCl2seGcrkOhtvG1SvMtV00TfEBuuJp')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51QHOTHG2XPZVpqqYsdIrzXch3uwE9yEwdz7yNY3dD8zDFRvk0Uax4XR7qaODVw0oKVRT9PackIUEZxcxRRtcfmuV00AMsq6LCi')
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access your Stripe keys
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
