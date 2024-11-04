@@ -29,7 +29,7 @@ def checkout(request):
     order_form = OrderForm()
 
 
-    if not stripr_public_key:
+    if not stripe_public_key:
         message.warning(request, 'Stripe public key is missing. \
         Did you forget to set it in your environment?')
 
