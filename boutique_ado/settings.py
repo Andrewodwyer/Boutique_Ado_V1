@@ -186,3 +186,6 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 print('STRIPE_WH_SECRET', STRIPE_WH_SECRET)
+
+# prevent potential overflow issues with IDs in 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
