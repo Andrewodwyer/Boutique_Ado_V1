@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     '8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net',
     'https://git.heroku.com/boutique-ado-ci-walkthrough.git',
     'https://boutique-ado-ci-walkthrough-0bee2fa8b4f5.herokuapp.com/',
+    'boutique-ado-ci-walkthrough-0bee2fa8b4f5.herokuapp.com',
 ]
 
 
