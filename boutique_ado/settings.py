@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 if os.path.isfile("env.py"):
     import env
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net',
+    'https://git.heroku.com/boutique-ado-ci-walkthrough.git',
+    'https://boutique-ado-ci-walkthrough-0bee2fa8b4f5.herokuapp.com/',
 ]
 
 
@@ -125,12 +128,18 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+if 'DATABASE_URL' in os.environ:
+    DATABASE = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else: 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
