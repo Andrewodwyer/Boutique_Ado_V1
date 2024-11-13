@@ -27,7 +27,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
+# 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -36,6 +37,9 @@ ALLOWED_HOSTS = [
     'boutique-ado-ci-walkthrough-0bee2fa8b4f5.herokuapp.com',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-andrewodwye-boutiqueado-5z1oaegnspn.ws.codeinstitute-ide.net',
+    'https://boutique-ado-ci-walkthrough-0bee2fa8b4f5.herokuapp.com']
 
 # Application definition
 
