@@ -5,7 +5,7 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from products.models import Product
-from profiles.models import UserProfile  
+from profiles.models import UserProfile
 
 import json
 import time
@@ -32,7 +32,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )   
+        )        
 
     def handle_event(self, event):
         """
@@ -60,7 +60,6 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2) # updated
 
-
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
@@ -80,7 +79,7 @@ class StripeWH_Handler:
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
-                
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
